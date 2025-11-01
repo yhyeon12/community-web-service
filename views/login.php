@@ -1,6 +1,7 @@
 <?php
 // 에러 메시지 수신 여부 확인
 $error = isset($_GET['error']) ? $_GET['error'] : "";
+$success = isset($_GET['success']) ? $_GET['success'] : "";
 ?>
 
 <head>
@@ -21,6 +22,11 @@ $error = isset($_GET['error']) ? $_GET['error'] : "";
         <?php if ($error): ?>
             <p style="color: red; margin-top: 10px;">아이디 또는 비밀번호가 잘못되었습니다.</p>
         <?php endif; ?>
+
+        <!-- 회원가입 성공한 경우($success==2, true인 경우) -->
+        <?php if ($success):
+            echo '<script>alert("회원가입에 성공하셨습니다!")</script>';
+        endif; ?>
 
     </div>
 </body>

@@ -12,11 +12,8 @@
     }
     
 
-    // DB연결 정보 정의
-    define('DB_SERVER', 'localhost');       // DB 서버 IP 주소 정의
-    define('DB_MANAGERNAME', 'user');       // 접속자 정의
-    define('DB_PASSWORD', 'ubuntu1027');    // 접속자 패스워드 정의
-    define('DB_NAME', 'test');              // 사용자 DB 정의
+    // DB연결 정보 정의(절대 경로 사용할 것)
+    require_once '/var/www/html/utils/conDB.php';
 
     // DB 연결
     $db_conn=mysqli_connect(DB_SERVER, DB_MANAGERNAME, DB_PASSWORD, DB_NAME);
