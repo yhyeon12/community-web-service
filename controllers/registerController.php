@@ -1,6 +1,5 @@
 <?php
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
+    require_once '/var/www/html/utils/errorCheck.php';
 
     session_start();
 
@@ -13,13 +12,6 @@
 
     // DB연결 정보 정의(절대 경로 사용할 것)
     require_once '/var/www/html/utils/conDB.php';
-    // DB 연결
-    $db_conn=mysqli_connect(DB_SERVER, DB_MANAGERNAME, DB_PASSWORD, DB_NAME);
-    
-    // DB 연결 실패 시 로그인 페이지로 연결
-    if (!$db_conn) {
-    die("데이터베이스 연결 실패: " . mysqli_connect_error());
-    }
 
     // id와 메일 주소 조회 쿼리
     $selID="select * from userDB where id='".$username."'";
@@ -37,7 +29,7 @@
         exit;
     }
 
-    // 회원 정보 삽입 및 로그인 페이지로 로드
+    // 회원 정보 삽입 및 로그인 페이지로 리다이렉트
     $userInfoSql="insert into userDB(id, password, mailAddr) values('".$username."', '".$password."', '".$mail."')";
     $updateUser=mysqli_query($db_conn, $userInfoSql);
     header("Location: /views/login.php?success=2");

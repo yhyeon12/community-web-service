@@ -3,6 +3,7 @@
 $error = isset($_GET['error']) ? $_GET['error'] : "";
 $success = isset($_GET['success']) ? $_GET['success'] : "";
 ?>
+
 <head>
     <link rel="stylesheet" href="/css/login.css">
     <title>register page</title>

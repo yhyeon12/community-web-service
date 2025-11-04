@@ -1,3 +1,5 @@
+<!-- 식별 인증(분리)/성공 -->
+
 <?php
 
     require_once '/var/www/html/utils/errorCheck.php';

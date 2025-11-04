@@ -1,12 +1,6 @@
 <?php
-session_start();
-$name=isset($_SESSION['username'])? $_SESSION['username']:"";
-
-// 전달 받은 값이 없는 경우, 멈춤
-if($name==""){
-    header("Location: /views/login.php");
-    exit();
-}
+    require_once '/var/www/html/utils/errorCheck.php';
+    require_once '/var/www/html/utils/viewSession.php';
 ?>
 
 <!DOCTYPE html>
@@ -14,15 +8,29 @@ if($name==""){
     
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/login.css">
         <title> Main Page </title>
     </head>
 
     <body>
-        
+        <div class="login-wrapper">
         <!-- 로그인 성공한 사용자 이름 출력 -->
-        <p> 🥳 로그인 성공 🥳</p>
+        <h2>메인 페이지</h2>
+        <h3> 🥳 로그인 성공 🥳</h3>
         <p>접속자 : <b><?php echo htmlspecialchars($name); ?></b></p> 
+        <?php 
+            // 마이페이지 버튼 생성
+            echo 
+            '<form action="/views/mypage.php" id="login-form">
+            <input type="submit" value="my page"/>
+            </form>';
+            // 로그아웃 버튼 생성
+            echo 
+            '<form action="/controllers/logoutController.php" id="login-form">
+            <input type="submit" value="logout"/>
+            </form>';
+        ?>
+        </div>
 
     </body>
 </html>
