@@ -1,4 +1,5 @@
-<!-- 식별 인증(동시+해시) -> DB passwd를 hash 값으로 저장하고, hash값 비교 / 성공 -->
+<!-- 식별 인증(동시+해시+DB쿼리문 개행)/성공 -->
+ <!-- 개행 : 연결 연산자 또는 heredoc 문법 사용 -->
 
 <?php
     require_once '/var/www/html/utils/errorCheck.php';
@@ -17,8 +18,11 @@
     // sha256 해시값 생성
     $hashPwd=hash('sha256', $password);
 
-    // 로그인 id, pwd 조회 쿼리
-    $sql="select * from hashPwd where id='".$username."' and hashPassword='".$hashPwd."'";
+
+    $sql=<<<SQL
+    select * from hashPwd
+    where id='$username' and hashPassword='$hashPwd'
+    SQL;
 
     // 쿼리 결과 저장
     $result = mysqli_query($db_conn, $sql);

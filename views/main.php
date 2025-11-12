@@ -19,15 +19,20 @@
         <h3> 🥳 로그인 성공 🥳</h3>
         <p>접속자 : <b><?php echo htmlspecialchars($name); ?></b></p> 
         <?php 
+            // 로그아웃 버튼 생성
+            echo 
+            '<form action="/controllers/logoutController.php" id="login-form">
+            <input type="submit" value="logout"/>
+            </form>';
             // 마이페이지 버튼 생성
             echo 
             '<form action="/views/mypage.php" id="login-form">
             <input type="submit" value="my page"/>
             </form>';
-            // 로그아웃 버튼 생성
+            // 게시판 버튼 생성
             echo 
-            '<form action="/controllers/logoutController.php" id="login-form">
-            <input type="submit" value="logout"/>
+            '<form action="/board/list.php" id="login-form">
+            <input type="submit" value="게시판"/>
             </form>';
         ?>
         </div>

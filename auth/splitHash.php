@@ -1,7 +1,6 @@
-<!-- 식별 인증(분리+해시) -->
+<!-- 식별 인증(분리+해시)/성공 -->
 
 <?php
-
     require_once '/var/www/html/utils/errorCheck.php';
 
     session_start();
@@ -15,8 +14,11 @@
     // DB연결 정보 정의(절대 경로 사용할 것)
     require_once '/var/www/html/utils/conDB.php';
 
-    // 로그인 id 조회 sql
-    $sql="select id, password from userDB where id='".$username."'";
+    // sha256 해시값 생성
+    $hashPwd=hash('sha256', $password);
+
+    // 로그인 id, pwd 조회 쿼리
+    $sql="select * from hashPwd where id='".$username."'";
 
     // sql 결과 저장
     $result = mysqli_query($db_conn, $sql);
@@ -30,8 +32,8 @@
     // mysql을 array 형태로 가져옴
     $row = mysqli_fetch_array($result);
 
-    // password 확인 
-    if($row['password']==$password){ // 비밀번호 일치
+    // password 해시값 일치 여부 확인 
+    if($row['hashPassword']==$hashPwd){ // 비밀번호 일치
         // 로그인 성공한 경우, 세션에 사용자 정보 저장
         $_SESSION["username"] = $username;
         $_SESSION["is_login"] = true;
@@ -40,6 +42,9 @@
         header("location: /views/main.php");
         exit();
     }else{      //비밀번호 오류: login.php로 에러값 반환
+        //오류 확인 코드
+        // var_dump($row['hashPassword']);
+        // var_dump($hashPwd);
         header("Location: /views/login.php?error=1");
         exit;
     }
