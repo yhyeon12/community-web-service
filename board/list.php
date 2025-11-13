@@ -1,6 +1,8 @@
+<!-- 글 목록 조회 -->
 <?php
     require_once '/var/www/html/utils/errorCheck.php';
     require_once '/var/www/html/utils/viewSession.php';
+    require_once '/var/www/html/board/pagination.php';
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +10,7 @@
     
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="/css/login.css">
+        <link rel="stylesheet" href="/css/board.css">
         <title>  board page </title>
     </head>
 
@@ -27,6 +29,7 @@
             <button onclick="writePost()"> 글쓰기 </button>
 
             <table>
+                <thead>
                 <tr>
                     <th width="70">번호</th>
                     <th width="500">제목</th>
@@ -34,17 +37,23 @@
                     <th width="100">작성일</th>
                     <th width="100">조회수</th>
                 </tr>
+                </thead>
+                <tbody>
                 <?php
-                require_once '/var/www/html/utils/conDB.php';
+                while($array=mysqli_fetch_array($boardInfo)){ ?>
+                <tr>
+                    <td><?php echo $idx; ?></td>
+                    <td><?php echo $array['title']; ?></td>
+                    <td><?php echo $array['id']; ?></td>
+                    <td><?php echo $array['create_at']; ?></td>
+                    <td><?php echo $array['views']; ?></td>
+                </tr>
 
-                // board 테이블의 데이터를 최신 순으로 받아옴
-                $boardSql=<<<SQL
-                select title, id, create_at, views from board
-                order by create_at desc
-                limit start_row, n
-                SQL;
-                
+                <?php
+                $idx++;
+                }
                 ?>
+                </tbody>
             </table>
         </div>
 
