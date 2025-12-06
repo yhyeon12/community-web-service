@@ -19,6 +19,7 @@
     $hashPwd=hash('sha256', $password);
 
 
+    // DB 조회 쿼리 작성(동시)
     $sql=<<<SQL
     select * from hashPwd
     where id='$username' and hashPassword='$hashPwd'

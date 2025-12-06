@@ -21,8 +21,11 @@ $success = isset($_GET['success']) ? $_GET['success'] : "";
     </form>
 
     <!-- 회원가입이 실패한 경우($error==1, true인 경우) -->
-    <?php if ($error): ?>
+    <?php if ($error==1): ?>
         <p style="color: red; margin-top: 10px;">아이디 또는 이메일 주소 중복. 다른 데이터를 입력하시오.</p>
+    <?php endif; ?>
+    <?php if ($error==2): ?>
+        <p style="color: red; margin-top: 10px;">빈 칸이 있습니다. 모든 칸을 채워주세요.</p>
     <?php endif; ?>
     </div>
 

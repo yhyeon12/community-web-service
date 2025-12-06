@@ -10,6 +10,12 @@
         $mail=$_POST["e-mail"];
     }
 
+    // 회원정보 중 빈 값이 있을 경우, 회원등록 취소
+    if($username==''||$password==''||$mail==''){
+        header("Location: /views/register.php?error=2");
+        exit;
+    }
+
     // DB연결 정보 정의(절대 경로 사용할 것)
     require_once '/var/www/html/utils/conDB.php';
 

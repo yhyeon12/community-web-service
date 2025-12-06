@@ -3,6 +3,10 @@
     require_once '/var/www/html/utils/errorCheck.php';
     require_once '/var/www/html/utils/viewSession.php';
     require_once '/var/www/html/board/pagination.php';
+
+// 에러, 성공, 상태 메시지 수신 여부 확인
+$error = isset($_GET['error']) ? $_GET['error'] : "";
+$success = isset($_GET['success']) ? $_GET['success'] : "";
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +30,9 @@
         <!-- 게시판 목록 조회 -->
         <div class="list">
             <h1> 자유 게시판 </h1>
-            <button onclick="writePost()"> 글쓰기 </button>
+            <form action="write.php" id="write-button">
+                <input type="submit" value="글쓰기">
+            </form>
 
             <table>
                 <thead>
@@ -56,19 +62,43 @@
                 </tbody>
             </table>
         </div>
+        
+        <!-- 페이지 관리 -->
+         <div class="page">
+            <?php var_dump($totalPage, $startList, $endList) ?>
+            <!-- 이전 페이지 -->
+            <?php
+            if($curPage<=1){?>
+            <a href="list.php?page=1"> 이전 </a>
+            <?php }else{ ?>
+            <a href="list.php?page=<?php echo ($curPage-1); ?>"> 이전 </a>
+            <?php };?>
 
-
-
-        <!-- 함수 -->
-        <div>
-            <script>
-                // 접속자 확인 및 글 작성 페이지로 로드
-                function writePost(){
-                    require_once '/var/www/html/utils/viewSession.php';
-                    location.href='write.php';
-                }
-            </script>
-        </div>
-
+            <!-- 페이지 번호 -->
+            <?php if($curPage<=2){      // 현재 페이지 번호가 2 이하일 경우
+                for($printPage=1; $printPage<$totalPage; $printPage++)?>
+                <a href="list.php?page=<?php echo $printPage; ?>"> <?php echo $printPage ?> </a>
+                <?php if($printPage>$pageBtNum) exit;   //$pageBtNum<$totalPage 인 경우, 페이지 표시 제한
+                }else if($curPage>=$totalPage-1){     // 현재 페이지 번호가 가장 뒷 번호일 경우
+                for($printPage=$totalPage-2; $printPage<$totalPage; $printPage++)?>
+                <a href="list.php?page=<?php echo $printPage; ?>"> <?php echo $printPage ?> </a>
+            <?php } else{               // 현재 페이지가 중간에 위치할 경우
+                for($printPage=$prePage; $printPage<$nextPage; $printPage++)?>
+                <a href="list.php?page=<?php echo $printPage; ?>"> <?php echo $printPage ?> </a>
+            <?php } ?>
+                
+            <!-- 다음 페이지 -->
+             <?php
+            if($curPage>=$totalPage){?>
+            <a href="list.php?page=<?php echo $curPage ?>"> 다음 </a>
+            <?php }else{ ?>
+            <a href="list.php?page=<?php echo ($curPage+1); ?>"> 다음 </a>
+            <?php };?>
+         </div>
+        
+         <!-- 글 등록 성공(success=1) -->
+         <?php if($success==2): ?>
+            <script>alert("글이 등록되었습니다.")</script>
+         <?php endif; ?>
     </body>
 </html>
