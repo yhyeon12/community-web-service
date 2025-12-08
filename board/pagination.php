@@ -25,7 +25,7 @@ $idx=$endList+1;                                        // 글 번호
 // 게시글을 최신 순으로 받아오기
 // limit : $startList으로부터 $listNum개의 데이터 반환
 $boardSql=<<<SQL
-select title, id, create_at, views, contents from board
+select title, id, create_at, views, contents, idx from board
 order by create_at desc
 limit $endList, $listNum
 SQL;

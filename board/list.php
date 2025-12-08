@@ -49,7 +49,7 @@ $success = isset($_GET['success']) ? $_GET['success'] : "";
                 while($array=mysqli_fetch_array($boardInfo)){ ?>
                 <tr>
                     <td><?php echo $idx; ?></td>
-                    <td><?php echo $array['title']; ?></td>
+                    <td><a href="read.php?postingInfo=<?php echo $array['idx']; ?>"><?php echo $array['title']; ?></a></td>
                     <td><?php echo $array['id']; ?></td>
                     <td><?php echo $array['create_at']; ?></td>
                     <td><?php echo $array['views']; ?></td>

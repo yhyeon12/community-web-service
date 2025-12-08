@@ -15,7 +15,7 @@
  
     $sql=<<<SQL
     insert into board(title, id, create_at, views, contents)
-    values('$title', '$_SESSION[username]', CURDATE(), 0, '$content')
+    values('$title', '$_SESSION[username]', NOW(), 0, '$content')
     SQL;
 
     $updateBoard=mysqli_query($db_conn, $sql);
