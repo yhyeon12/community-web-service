@@ -15,19 +15,19 @@ $totalPost=$postRow[0];                       // 게시글 수 저장
 
 // 페이지 처리 관련 변수 정의
 $totalPage=ceil($totalPost/$listNum);                   // 총 페이지 수
-$startList=($totalPage-$curPage)*10+($totalPost%10);    // 현재 페이지의 시작행 번호(top)
-$endList=($totalPage==$curPage) ? 0 : $startList-9;     // 현재 페이지의 마지막행 번호(floor)
+$startList=($curPage-1)*$listNum;    // 현재 페이지의 시작행 번호(top)
+$endList=($totalPage==$curPage) ? $totalPost : $startList+9;     // 현재 페이지의 마지막행 번호(floor)
 $nextPage=($totalPage==$curPage) ? $curPage : $curPage+1;      // 다음 페이지(페이지 num의 절대값이 커짐)
 $prePage=($curPage==1) ? 1 : $curPage-1;                // 이전 페이지(페이지 num의 절대값이 작아짐)
 $idx=($curPage-1)*$listNum+1;                                 // 글 번호
-$curPostNum=$startList-$endList;                        // 현재 페이지 게시글 출력 수
+$curPostNum=$endList-$startList;                        // 현재 페이지 게시글 출력 수
 
 // 게시글을 최신 순으로 받아오기
 // limit : $startList으로부터 $listNum개의 데이터 반환
 $boardSql=<<<SQL
 select title, id, create_at, views, contents, idx from board
 order by create_at desc
-limit $endList, $curPostNum
+limit $startList, $curPostNum
 SQL;
 $boardInfo=mysqli_query($db_conn, $boardSql);
 

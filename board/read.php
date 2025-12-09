@@ -58,6 +58,19 @@
             <form action="list.php" id="write-button">
             <input type="submit" value="돌아가기">
             </form>
+
+            <?php if($_SESSION['username']==$postingInfo['id']){ ?>
+                <form action="list.php" id="write-button">
+                <input type="submit" value="삭제하기">
+                </form>
+                <form action="list.php" id="write-button">
+                <input type="submit" value="수정하기">
+                </form>
+            <?php } ?>
+
+            <!-- 댓글 -->
+
+
         </div>
     </body>
 </html>
