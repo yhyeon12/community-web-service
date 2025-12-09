@@ -65,35 +65,14 @@ $success = isset($_GET['success']) ? $_GET['success'] : "";
         
         <!-- 페이지 관리 -->
          <div class="page">
-            <?php var_dump($totalPage, $startList, $endList) ?>
             <!-- 이전 페이지 -->
-            <?php
-            if($curPage<=1){?>
-            <a href="list.php?page=1"> 이전 </a>
-            <?php }else{ ?>
-            <a href="list.php?page=<?php echo ($curPage-1); ?>"> 이전 </a>
-            <?php };?>
-
-            <!-- 페이지 번호 -->
-            <?php if($curPage<=2){      // 현재 페이지 번호가 2 이하일 경우
-                for($printPage=1; $printPage<$totalPage; $printPage++)?>
-                <a href="list.php?page=<?php echo $printPage; ?>"> <?php echo $printPage ?> </a>
-                <?php if($printPage>$pageBtNum) exit;   //$pageBtNum<$totalPage 인 경우, 페이지 표시 제한
-                }else if($curPage>=$totalPage-1){     // 현재 페이지 번호가 가장 뒷 번호일 경우
-                for($printPage=$totalPage-2; $printPage<$totalPage; $printPage++)?>
-                <a href="list.php?page=<?php echo $printPage; ?>"> <?php echo $printPage ?> </a>
-            <?php } else{               // 현재 페이지가 중간에 위치할 경우
-                for($printPage=$prePage; $printPage<$nextPage; $printPage++)?>
-                <a href="list.php?page=<?php echo $printPage; ?>"> <?php echo $printPage ?> </a>
+            <a href="list.php?page=<?php echo $prePage ?>"> 이전 </a>
+            <!-- 페이징 처리 -->
+            <?php for($printPage=$prePage; $printPage<=$nextPage; $printPage++){ ?>
+            <a href="list.php?page=<?php echo $printPage; ?>"> <?php echo $printPage ?> </a>
             <?php } ?>
-                
             <!-- 다음 페이지 -->
-             <?php
-            if($curPage>=$totalPage){?>
-            <a href="list.php?page=<?php echo $curPage ?>"> 다음 </a>
-            <?php }else{ ?>
-            <a href="list.php?page=<?php echo ($curPage+1); ?>"> 다음 </a>
-            <?php };?>
+             <a href="list.php?page=<?php echo $nextPage ?>"> 다음 </a>
          </div>
         
          <!-- 글 등록 성공(success=1) -->
