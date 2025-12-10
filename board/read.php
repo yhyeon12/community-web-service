@@ -60,12 +60,13 @@
             </form>
 
             <?php if($_SESSION['username']==$postingInfo['id']){ ?>
+                <div class="button">
+                <a href="/controllers/deleteController.php?idx=<?php echo $idx ?>"> 삭제하기 </a>
+                
                 <form action="list.php" id="write-button">
-                <input type="submit" value="삭제하기">
+                    <input type="submit" value="수정하기">
                 </form>
-                <form action="list.php" id="write-button">
-                <input type="submit" value="수정하기">
-                </form>
+                </div>
             <?php } ?>
 
             <!-- 댓글 -->

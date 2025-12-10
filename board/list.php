@@ -75,9 +75,13 @@ $success = isset($_GET['success']) ? $_GET['success'] : "";
              <a href="list.php?page=<?php echo $nextPage ?>"> 다음 </a>
          </div>
         
-         <!-- 글 등록 성공(success=1) -->
+         <!-- 글 등록 성공(success=2) -->
          <?php if($success==2): ?>
             <script>alert("글이 등록되었습니다.")</script>
+         <?php endif; ?>
+         <!-- 글 삭제 성공(success=3) -->
+         <?php if($success==3): ?>
+            <script>alert("글이 삭제되었습니다.")</script>
          <?php endif; ?>
     </body>
 </html>
