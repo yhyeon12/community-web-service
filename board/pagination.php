@@ -20,7 +20,7 @@ $endList=($totalPage==$curPage) ? $totalPost : $startList+9;     // 현재 페�
 $nextPage=($totalPage==$curPage) ? $curPage : $curPage+1;      // 다음 페이지(페이지 num의 절대값이 커짐)
 $prePage=($curPage==1) ? 1 : $curPage-1;                // 이전 페이지(페이지 num의 절대값이 작아짐)
 $idx=($curPage-1)*$listNum+1;                                 // 글 번호
-$curPostNum=$endList-$startList;                        // 현재 페이지 게시글 출력 수
+$curPostNum=$endList-$startList+1;                        // 현재 페이지 게시글 출력 수
 
 // 게시글을 최신 순으로 받아오기
 // limit : $startList으로부터 $listNum개의 데이터 반환

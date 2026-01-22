@@ -13,6 +13,10 @@
     </head>
 
     <body>
+
+        <!-- 메뉴 -->
+        <?php include "/var/www/html/views/menu.php"; ?>
+
         <div class="login-wrapper">
         <!-- 로그인 성공한 사용자 이름 출력 -->
         <h2>메인 페이지</h2>

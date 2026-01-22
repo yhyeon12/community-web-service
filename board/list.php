@@ -19,13 +19,8 @@ $success = isset($_GET['success']) ? $_GET['success'] : "";
     </head>
 
     <body>
-        <!-- 각종 버튼 -->
-        <div class="logoutButton">
-        <a href="/controllers/logoutController.php"> 로그아웃 </a>
-        </div>
-        <div class="mypageButton">
-        <a href="/views/mypage.php"> mypage </a>
-        </div>
+        <!-- 메뉴 -->
+        <?php include "/var/www/html/views/menu.php"; ?>
 
         <!-- 게시판 목록 조회 -->
         <div class="list">

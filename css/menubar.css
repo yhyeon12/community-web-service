@@ -1,0 +1,71 @@
+
+/* 폰트 시작 */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+html {
+  font-family: 'Ubuntu', sans-serif;
+}
+/* 폰트 끝 */
+
+/* 노멀라이즈 시작 */
+body, ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;		/* 해당 태그의 list-style을 none으로 하는 것으로 ●을 제거한다 */
+}
+
+body {
+  background-color: #F4F6F6;
+}
+
+a {
+  color: inherit;		/* 부모 엘리먼트의 값을 물려받는다 */
+  text-decoration: none;	/* 해당 태그의 text-decoration을 none으로 하는 것으로 밑줄을 제거한다 */
+}
+/* 노멀라이즈 끝 */
+
+/* 가운데 정렬 */
+.con {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 변수 생성 */
+:root {
+  --site-width: 2040px;
+}
+
+/* 실질적으로 메뉴에 사용할 너비 설정 */
+.top-bar > .con {
+    width: 95%;
+    max-width: var(--site-width);
+    margin: 0 auto;
+}
+
+/* 실질적으로 메뉴에 사용할 너비 설정 */
+.top-bar__menu-box-1 > ul > li {
+  display: inline-block;
+}
+
+/* 문자열 가운데 정렬 */
+.top-bar__menu-box-1 {
+    text-align: center;
+  /* margin-top: 100px; */
+}
+
+/* 모든 메뉴 박스의 배경을 검은색으로 하고 글자를 하얀색으로 꾸며보자 */
+.top-bar__menu-box-1 ul {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    background-color: #F4F6F6;
+    color: #1C2938;
+}
+
+/* 모든 메뉴 크기 조절 */
+.top-bar__menu-box-1 ul > li > a {
+  display: block;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: 1px solid;
+}

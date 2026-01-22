@@ -23,6 +23,10 @@
     </head>
 
     <body>
+        <!-- 메뉴 -->
+        <?php include "/var/www/html/views/menu.php"; ?>
+
+    
         <div class="login-wrapper">
         <h2>마이 페이지</h2>
         <h3>회원 정보</h3>

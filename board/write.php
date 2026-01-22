@@ -9,37 +9,32 @@
     
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="/css/board.css">
+        <link rel="stylesheet" href="/css/board_write.css">
         <title>  write page </title>
     </head>
 
     <body>
         <!-- 메뉴 -->
-        <div class="logoutButton">
-        <a href="/controllers/logoutController.php"> 로그아웃 </a>
-        </div>
-        <div class="mypageButton">
-        <a href="/views/mypage.php"> mypage </a>
-        </div>
+        <?php include "/var/www/html/views/menu.php"; ?>
 
         <!-- 글 작성 -->
-        <div class="writing">
+        <div class="writing writing-btn">
             <h1> 글을 작성하세요 </h1>
             <form method="POST" action="/controllers/writeController.php">
-                <table class="writeTable">
+                <table class="writingTable">
                     <tr>
-                        <th width="50">제목</th>
-                        <td><input type="text" name="title" placeholder="제목을 입력하세요" ></td>
+                        <th width="80">제목</th>
+                        <td><input class="title" type="text" name="title" placeholder="제목을 입력하세요" ></td>
                     </tr>
                     <tr>
-                        <th width="50">내용</th>
-                        <td><textarea name="content" rows="5" cols="40" placeholder="내용을 입력하세요" ></textarea></td>
+                        <th width="80">내용</th>
+                        <td><textarea class="contents" name="content" placeholder="내용을 입력하세요" ></textarea></td>
                     </tr>
                 </table>
-                <input type="submit" value="등록">
+                <button class="custom-btn btn-1 locate-btn" type="submit">Register</button>
             </form>
             <form action="list.php" id="write-button">
-            <input type="submit" value="취소">
+                <button class="custom-btn btn-1 locate-btn" type="submit">Cancel</button>
             </form>
         </div>
     </body>
