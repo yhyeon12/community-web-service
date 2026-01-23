@@ -10,21 +10,13 @@
     
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="/css/board.css">
+        <link rel="stylesheet" href="/css/board_read.css">
         <title>  board_read page </title>
     </head>
 
     <body>
         <!-- 메뉴 -->
-        <div class="logoutButton">
-        <a href="/controllers/logoutController.php"> 로그아웃 </a>
-        </div>
-        <div class="mypageButton">
-        <a href="/views/mypage.php"> mypage </a>
-        </div>
-        <div class="mypageButton">
-        <a href="/board/list.php"> board </a>
-        </div>
+        <?php include "/var/www/html/views/menu.php"; ?>
 
         <!-- 게시글 출력 -->
         <div class="reading">
@@ -45,28 +37,26 @@
             <!-- 작성 정보 출력(작성자, 게시 날짜, 조회수) -->
             <div class="user_info">
                 <p>
-                    <b>작성자</b>
+                    <b>작성자 :</b>
                     <?php echo $postingInfo['id']; ?> | <?php echo $postingInfo['create_at'];?> | <b>조회수 </b><?php echo $postingInfo['views']; ?>
                 </p>
             </div>
             <!-- 본문 출력 -->
-            <div class="content">
+            <div class="contents">
                 <?php echo nl2br($postingInfo['contents']); ?>
             </div>
 
             <!-- 버튼 -->
-            <form action="list.php" id="write-button">
-            <input type="submit" value="돌아가기">
+            <form action="list.php">
+                <button class="custom-btn btn-1 reading-btn">BACK</button>
             </form>
-
             <?php if($_SESSION['username']==$postingInfo['id']){ ?>
-                <div class="button">
-                <a href="/controllers/deleteController.php?idx=<?php echo $idx ?>"> 삭제하기 </a>
-                
-                <form action="list.php" id="write-button">
-                    <input type="submit" value="수정하기">
+                <form action="/controllers/deleteController.php?idx=<?php echo $idx ?>">
+                    <button class="custom-btn btn-1 reading-btn">DELETE</button>
                 </form>
-                </div>
+                <form action="list.php" id="write-button">
+                    <button class="custom-btn btn-1 reading-btn">EDIT</button>
+                </form>
             <?php } ?>
 
             <!-- 댓글 -->

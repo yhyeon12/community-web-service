@@ -1,56 +1,52 @@
 @import url("base.css");
 
 h1 {
-    text-align: center;
+    text-align: left;
     padding: 10px 10px;
     padding-top: 50px;
-    padding-bottom: 30px;
     color: #1C2938;
-    border-bottom:1px solid #1C2938;
-}
-
-.board-top {
-    width : 80%;
-    height: 50px;
-    margin: 0 auto;
-    max-width: 100%;
+    font-size: 50px;
 }
 
 
-.writing{
+.reading{
     display: flex;
     flex-direction: column;
     width: 100%;
     margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-th {
-    font-size: 20px;
-}
 
 .title{
     height: 3vh;
     border : none;
-    width : 85vw;
+    width : 90vw;
     border-bottom: solid 2px #1C2938;
     background-color: #FAF3E1;
     outline: none; 
     font-size: 30px;
 }
 
+.user_info{
+    width: 90vw;
+    border-bottom: 2px solid #1C2938;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 25px;
+}
+
 .contents{
     margin-top: 30px;
-    width : 85vw;
-    height: 500px;
-    font-size: 25px;
-    border: 2px solid;
-    border-color : #1C2938;
+    width : 90vw;
+    min-height: 500px;
+    font-size: 30px;
+    border-bottom: 2px solid #222222;
+    background-color: #FAF3E1;
+    padding-left: 20px;
+    padding-right: 20px;
     outline: none;
-    background-color: #FAF3E1 !important;
-    opacity: 1 !important;           /* 투명도 강제 고정 */
-    -webkit-appearance: none;       /* 아이폰/사파리 필수 */
-    -moz-appearance: none;          /* 파이어폭스 필수 */
-    appearance: none;
 }
 
 button{
@@ -85,9 +81,6 @@ button{
    4px 4px 5px 0px #0001;
 }
 
-.writing-btn{
+.reading-btn{
     text-align: center;
-}
-.locate-btn{
-    display :inline-block;
 }

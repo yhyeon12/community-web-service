@@ -10,6 +10,7 @@
     <head>
         <meta charset="UTF-8" />
         <link rel="stylesheet" href="/css/board_write.css">
+        <link rel="stylesheet" href="/css/global.css">
         <title>  write page </title>
     </head>
 
@@ -23,18 +24,18 @@
             <form method="POST" action="/controllers/writeController.php">
                 <table class="writingTable">
                     <tr>
-                        <th width="80">제목</th>
+                        <th width="80">TITLE</th>
                         <td><input class="title" type="text" name="title" placeholder="제목을 입력하세요" ></td>
                     </tr>
                     <tr>
-                        <th width="80">내용</th>
-                        <td><textarea class="contents" name="content" placeholder="내용을 입력하세요" ></textarea></td>
+                        <th width="80">CONTENTS</th>
+                        <td><textarea class="contents" name="contents" placeholder="내용을 입력하세요" ></textarea></td>
                     </tr>
                 </table>
-                <button class="custom-btn btn-1 locate-btn" type="submit">Register</button>
+                <button class="custom-btn btn-1 locate-btn" type="submit">REGISTER</button>
             </form>
             <form action="list.php" id="write-button">
-                <button class="custom-btn btn-1 locate-btn" type="submit">Cancel</button>
+                <button class="custom-btn btn-1 locate-btn" type="submit">CANCEL</button>
             </form>
         </div>
     </body>

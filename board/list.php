@@ -14,7 +14,8 @@ $success = isset($_GET['success']) ? $_GET['success'] : "";
     
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="/css/board.css">
+        <link rel="stylesheet" href="/css/board_list.css">
+        <link rel="stylesheet" href="/css/global.css">
         <title>  board page </title>
     </head>
 
@@ -24,19 +25,19 @@ $success = isset($_GET['success']) ? $_GET['success'] : "";
 
         <!-- 게시판 목록 조회 -->
         <div class="list">
-            <h1> 자유 게시판 </h1>
+            <h1> BOARD </h1>
             <form action="write.php" id="write-button">
-                <input type="submit" value="글쓰기">
+                <button class="custom-btn btn-1 locate-btn" type="submit">WRITE</button>
             </form>
 
             <table>
                 <thead>
                 <tr>
-                    <th width="70">번호</th>
-                    <th width="500">제목</th>
-                    <th width="120">작성자</th>
-                    <th width="100">작성일</th>
-                    <th width="100">조회수</th>
+                    <th width="70">NUM</th>
+                    <th width="500">TITLE</th>
+                    <th width="120">WRITER</th>
+                    <th width="100">DATE</th>
+                    <th width="100">VIEWS</th>
                 </tr>
                 </thead>
                 <tbody>
