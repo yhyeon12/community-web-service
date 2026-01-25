@@ -2,7 +2,7 @@
 
 <?php
     require_once '/var/www/html/utils/errorCheck.php';
-    require_once '/var/www/html/utils/viewSession.php';
+    require_once '/var/www/html/utils/authGuard.php';
 ?>
 
 <!DOCTYPE html>
@@ -48,16 +48,17 @@
             </div>
 
             <!-- 버튼 -->
-            <form action="list.php">
+             <a href="list.php">
                 <button class="custom-btn btn-1 align-btn">BACK</button>
-            </form>
+             </a>
             <?php if($_SESSION['username']==$postingInfo['id']){ ?>
-                <form action="/controllers/deleteController.php?idx=<?php echo $idx ?>">
+                
+                <a href="/controllers/deleteController.php?idx=<?php echo $idx ?>" onclick="return confirm('정말 삭제하시겠습니까?');">
                     <button class="custom-btn btn-1 align-btn">DELETE</button>
-                </form>
-                <form action="list.php" id="write-button">
+                </a>
+                <a href="list.php">
                     <button class="custom-btn btn-1 align-btn">EDIT</button>
-                </form>
+                </a>
             <?php } ?>
 
             <!-- 댓글 -->

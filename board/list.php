@@ -1,7 +1,7 @@
 <!-- 글 목록 조회 -->
 <?php
     require_once '/var/www/html/utils/errorCheck.php';
-    require_once '/var/www/html/utils/viewSession.php';
+    require_once '/var/www/html/utils/authGuard.php';
     require_once '/var/www/html/board/pagination.php';
 
 // 에러, 성공, 상태 메시지 수신 여부 확인

@@ -1,7 +1,7 @@
 <?php
     
     require_once '/var/www/html/utils/errorCheck.php';
-    require_once '/var/www/html/utils/viewSession.php';
+    require_once '/var/www/html/utils/authGuard.php';
 
     // -------------------- DB에서 회원 정보 가져오기 --------------------
     // DB연결 정보 정의(절대 경로 사용할 것)

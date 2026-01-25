@@ -1,6 +1,4 @@
-<?php
-require_once '/var/www/html/utils/viewSession.php';
-?>
+
 
 <!DOCTYPE html>
 <html>
