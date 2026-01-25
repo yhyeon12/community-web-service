@@ -1,0 +1,49 @@
+
+/* @import url("base.css"); */
+
+
+/* 가운데 정렬 */
+.con {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 변수 생성 */
+:root {
+  --site-width: 2040px;
+}
+
+/* 실질적으로 메뉴에 사용할 너비 설정 */
+.top-bar > .con {
+    width: 95%;
+    max-width: var(--site-width);
+    margin: 0 auto;
+}
+
+/* 실질적으로 메뉴에 사용할 너비 설정 */
+.top-bar__menu-box-1 > ul > li {
+  display: inline-block;
+}
+
+/* 문자열 가운데 정렬 */
+.top-bar__menu-box-1 {
+    text-align: center;
+  /* margin-top: 100px; */
+}
+
+/* 모든 메뉴 박스의 배경을 검은색으로 하고 글자를 하얀색으로 꾸며보자 */
+.top-bar__menu-box-1 ul {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    /* background-color: #1242a8; */
+    color: #222222;
+}
+
+/* 모든 메뉴 크기 조절 */
+.top-bar__menu-box-1 ul > li > a {
+  display: block;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: 1px solid;
+}

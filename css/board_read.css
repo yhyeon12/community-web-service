@@ -1,0 +1,50 @@
+@import url("base.css");
+
+h1 {
+    text-align: left;
+    padding: 10px 10px;
+    padding-top: 50px;
+    color: #1C2938;
+    font-size: 50px;
+}
+
+
+.reading{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+.title{
+    height: 3vh;
+    border : none;
+    width : 90vw;
+    border-bottom: solid 2px #1C2938;
+    background-color: #FAF3E1;
+    outline: none; 
+    font-size: 30px;
+}
+
+.user_info{
+    width: 90vw;
+    border-bottom: 2px solid #1C2938;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 25px;
+}
+
+.contents{
+    margin-top: 30px;
+    width : 90vw;
+    min-height: 500px;
+    font-size: 30px;
+    border-bottom: 2px solid #222222;
+    background-color: #FAF3E1;
+    padding-left: 20px;
+    padding-right: 20px;
+    outline: none;
+}
