@@ -19,7 +19,7 @@
     <head>
         <meta charset="UTF-8" />
         <link rel="stylesheet" href="/css/global.css">
-        <title> Main Page </title>
+        <title> mypage </title>
     </head>
 
     <body>
@@ -29,7 +29,7 @@
     
         <div class="align-btn">
         <h1>MY PAGE</h1>
-        <h2>회원 정보</h2>
+        <h2>~(ᵕ ̫  ᵕ ~) 회원 정보 (~ ᵕ ̫ ᵕ)~</h2>
         <p>이름 : <b><?php echo htmlspecialchars($name); ?></b></p> 
         <p>이메일 : <b><?php echo htmlspecialchars($rowMail['mailAddr']); ?></b></p> 
 

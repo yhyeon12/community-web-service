@@ -56,7 +56,7 @@
                 <a href="/controllers/deleteController.php?idx=<?php echo $idx ?>" onclick="return confirm('정말 삭제하시겠습니까?');">
                     <button class="custom-btn btn-1 align-btn">DELETE</button>
                 </a>
-                <a href="list.php">
+                <a href="edit.php?idx=<?php echo $idx ?>">
                     <button class="custom-btn btn-1 align-btn">EDIT</button>
                 </a>
             <?php } ?>

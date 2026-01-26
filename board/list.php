@@ -79,5 +79,9 @@ $success = isset($_GET['success']) ? $_GET['success'] : "";
          <?php if($success==3): ?>
             <script>alert("글이 삭제되었습니다.")</script>
          <?php endif; ?>
+                  <!-- 글 삭제 성공(success=3) -->
+         <?php if($success==4): ?>
+            <script>alert("글이 수정되었습니다.")</script>
+         <?php endif; ?>
     </body>
 </html>

@@ -26,7 +26,7 @@
                 <button  class="custom-btn btn-1 locate-btn" type="submit">LOGIN</button>
             </form>
             <?php }else{ ?>
-            <h2> 🥳 로그인 성공 🥳</h2>
+            <h2> ٩( ᐢᗜᐢ) 로그인 성공 (ᐢᗜᐢ )و </h2>
             <p>접속자 : <b><?php echo htmlspecialchars($name); ?></b></p> 
             
             <!-- 마이페이지 -->
