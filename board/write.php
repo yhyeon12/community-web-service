@@ -20,8 +20,8 @@
 
         <!-- 글 작성 -->
         <div class="writing writing-btn">
-            <h1> 글을 작성하세요 </h1>
-            <form method="POST" action="/controllers/writeController.php">
+            <h1> ⟅/ᐠ• -•) 글을 작성하세요 (•- •マ⟆ </h1>
+            <form method="POST" action="/controllers/writeController.php" enctype="multipart/form-data">
                 <table class="writingTable">
                     <tr>
                         <th width="80">TITLE</th>
@@ -30,6 +30,10 @@
                     <tr>
                         <th width="80">CONTENTS</th>
                         <td><textarea class="contents" name="contents" placeholder="내용을 입력하세요" ></textarea></td>
+                    </tr>
+                    <tr>
+                        <th width="80">FILE</th>
+                        <td><input type="file" name="myfile"></td>
                     </tr>
                 </table>
                 <button class="custom-btn btn-1 locate-btn" type="submit">REGISTER</button>

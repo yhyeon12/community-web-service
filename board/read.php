@@ -26,7 +26,7 @@
             $idx=isset($_GET['postingInfo']) ? $_GET['postingInfo'] : 1;
             require_once '/var/www/html/utils/conDB.php';
             $sql=<<<SQL
-            select title, id, create_at, views, contents from board 
+            select title, id, create_at, views, contents, files from board 
             where idx='$idx'
             SQL;
             $postingRes=mysqli_query($db_conn, $sql);
@@ -45,6 +45,18 @@
             <!-- 본문 출력 -->
             <div class="contents">
                 <?php echo nl2br($postingInfo['contents']); ?>
+            </div>
+            <div class="files">
+                <p>
+                    <b>FILE |</b>
+                    <?php if($postingInfo['files']==""){ ?>
+                    <b> 파일 없음 </b>
+                    <?php }else{ ?>
+                        <a href="/controllers/downloadController.php?file=<?php echo $postingInfo['files'] ?>" class="download" >
+                        <?php echo $postingInfo['files'];?>
+                        </a>
+                    <?php } ?>
+                </p>
             </div>
 
             <!-- 버튼 -->

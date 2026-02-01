@@ -5,11 +5,24 @@
 
 $idx=isset($_GET['idx']) ? $_GET['idx'] : "";
 if($idx==""){
-    header("Location: /board/list.php?success=3");
     exit();
 }
 
 require_once '/var/www/html/utils/conDB.php';
+
+$fileCheckSql=<<<SQL
+SELECT files From board
+WHERE idx='$idx'
+SQL;
+
+$checkRes=mysqli_query($db_conn, $fileCheckSql);
+$res=mysqli_fetch_assoc($checkRes);
+if($res){
+    $dir_path = "/var/www/html/uploads/";        
+    $file_name = $res['files'];               
+    $file_path = $dir_path.$file_name;
+    unlink($file_path);
+}
 
 $deleteSql=<<<SQL
 DELETE FROM board

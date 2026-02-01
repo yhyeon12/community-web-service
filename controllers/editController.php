@@ -13,11 +13,6 @@
  
     // DB연결 정보 정의(절대 경로 사용할 것)
     require_once '/var/www/html/utils/conDB.php';
- 
-    $sql=<<<SQL
-    insert into board(title, id, create_at, views, contents)
-    values('$title', '$_SESSION[username]', NOW(), 0, '$content')
-    SQL;
 
     $sql=<<<SQL
     UPDATE board SET title='$title', contents='$content'
@@ -25,6 +20,6 @@
     SQL;
 
     $updateBoard=mysqli_query($db_conn, $sql);
-    header("Location: /board/list.php?success=4");
+    header("Location: /board/read.php?postingInfo=$idx");
 
  ?>
