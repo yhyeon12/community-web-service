@@ -17,7 +17,7 @@ $success = isset($_GET['success']) ? $_GET['success'] : "";
 
     <div class="login-wrapper align-btn">
 
-    <h1>Register</h1>
+    <h1>REGISTER</h1>
     <form method="POST" action="/controllers/registerController.php" id="login-form">
         <input type="text" name="username" placeholder="ID">
         <input type="password" name="password" placeholder="password">

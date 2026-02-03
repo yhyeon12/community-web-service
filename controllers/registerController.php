@@ -42,7 +42,7 @@
     }
 
     // 회원 정보 삽입 및 로그인 페이지로 리다이렉트
-    $userInfoSql="insert into userDB(id, password, mailAddr) values('".$username."', '".$password."', '".$mail."')";
+    $userInfoSql="insert into userDB(id, mailAddr) values('".$username."', '".$mail."')";
     $hashInfoSql="insert into hashPwd(id, hashPassword) values('".$username."', '".$hashPwd."')";
     $updateUser=mysqli_query($db_conn, $userInfoSql);
     $updateHash=mysqli_query($db_conn, $hashInfoSql);
