@@ -1,4 +1,3 @@
-<!-- 게시글 삭제 컨트롤러 -->
 
 <?php
  require_once '/var/www/html/utils/errorCheck.php';

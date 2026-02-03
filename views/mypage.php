@@ -6,12 +6,9 @@
     $error = isset($_GET['error']) ? $_GET['error'] : "";
     $success = isset($_GET['success']) ? $_GET['success'] : "";
 
-    // -------------------- DB에서 회원 정보 가져오기 --------------------
-    // DB연결 정보 정의(절대 경로 사용할 것)
     require_once '/var/www/html/utils/conDB.php';
-    // 로그인 id 조회 쿼리 생성
+
     $sql="select * from userDB where id='".$name."'";
-    // sql 결과 저장
     $veriInfo = mysqli_query($db_conn, $sql);
     $rowInfo = mysqli_fetch_array($veriInfo);
 ?>
@@ -27,7 +24,6 @@
     </head>
 
     <body>
-        <!-- 메뉴 -->
         <?php include "/var/www/html/views/menu.php"; ?>
 
     
@@ -60,7 +56,6 @@
 
         </div>
 
-        <!-- 비밀번호 수정 성공여부 알림 -->
         <?php if($success): 
             echo '<script>alert("비밀번호가 성공적으로 수정되었습니다.")</script>';
         endif; ?>

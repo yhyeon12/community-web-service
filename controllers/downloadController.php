@@ -3,8 +3,8 @@
 require_once '/var/www/html/utils/errorCheck.php';
 
 
-$dir_path = "/var/www/html/uploads/";        // 파일이 위치한 폴더 경로
-$file_name = isset($_GET['file']) ? $_GET['file'] : "";                // 파일명
+$dir_path = "/var/www/html/uploads/";       
+$file_name = isset($_GET['file']) ? $_GET['file'] : "";             
 $file_path = $dir_path.$file_name;
 $file_size = filesize($file_path);
  
